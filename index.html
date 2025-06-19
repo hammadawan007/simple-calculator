@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .calculator {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 350px;
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, select, button, textarea {
+      padding: 10px 15px;
+      margin-bottom: 15px;
+      font-size: 18px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #444;
+      margin-top: 20px;
+      min-height: 30px;
+    }
+
+    .footer {
+      width: 100%;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      color: #333;
+    }
+
+    .footer input, .footer textarea {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>Simple Calculator</h2>
+
+    <form method="post" action="/">
+      <input type="number" step="any" name="num1" placeholder="Enter first number" required />
+      
+      <select name="op" required>
+        <option value="" disabled selected>Select operation</option>
+        <option value="+">Add (+)</option>
+        <option value="-">Subtract (-)</option>
+        <option value="*">Multiply (×)</option>
+        <option value="/">Divide (÷)</option>
+      </select>
+
+      <input type="number" step="any" name="num2" placeholder="Enter second number" required />
+      
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div class="result">
+      {% if result is not none %}
+        Result: {{ result }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer">
+    <h3>Feedback</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Feedback" rows="4" required></textarea>
+      <button type="submit">Send Feedback</button>
+    </form>
+    <p>Contact us: hammadh0007@gmail.com| 📞 +92-317-8513007</p>
+  </div>
+
+</body>
+</html>
